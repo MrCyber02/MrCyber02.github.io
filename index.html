@@ -1,38 +1,76 @@
-name: Build and Deploy to Pages
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OMAR AL AZZAWI  Cyber Security Specialist</title>
+  <meta name="description" content="Professional Cyber Security Analyst and Systems Administrator Portfolio">
+  <meta name="author" content="Omar Al Azzawi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root{--w:900px}
+    body{margin:0;font-family:JetBrains Mono, monospace;background:#0b0f14;color:#e6edf3;line-height:1.6}
+    header{padding:48px 16px;text-align:center}
+    h1{font-family:Orbitron, sans-serif;letter-spacing:1px;margin:0 0 8px}
+    .wrap{max-width:var(--w);margin:0 auto;padding:0 16px 48px}
+    .card{border:1px solid #263241;border-radius:12px;padding:16px;margin:12px 0;background:#0f1520}
+    a{color:#7aa2ff;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .tag{display:inline-block;border:1px solid #263241;border-radius:6px;padding:2px 8px;margin:0 6px 6px 0;font-size:.9rem}
+    footer{text-align:center;color:#94a3b8;padding:24px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OMAR AL AZZAWI</h1>
+    <p>Cyber security and systems admin. I build and secure stuff, then write what I learned.</p>
+    <p>
+      <a href="mailto:you@example.com">you@example.com</a>  |  
+      <a href="https://github.com/MrCyber02">github.com/MrCyber02</a>
+    </p>
+  </header>
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+  <main class="wrap">
+    <section class="card">
+      <h2>Skills</h2>
+      <p>
+        <span class="tag">Linux</span>
+        <span class="tag">Windows Server</span>
+        <span class="tag">Networking</span>
+        <span class="tag">SIEM</span>
+        <span class="tag">Python</span>
+        <span class="tag">Bash</span>
+        <span class="tag">Cloud admin</span>
+      </p>
+    </section>
 
-concurrency:
-  group: pages
-  cancel-in-progress: true
+    <section class="card">
+      <h2>Experience</h2>
+      <p><strong>IT and system admin</strong>  Getinge  Tech Mahindra</p>
+      <ul>
+        <li>Endpoint setup, MDM, tickets, and user support</li>
+        <li>Firewall rules and basic hardening</li>
+        <li>Docs and small tools to speed up work</li>
+      </ul>
+    </section>
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+    <section class="card">
+      <h2>Projects</h2>
+      <p><strong>Log parser</strong>  script that flags brute force tries from auth logs. <a href="#">repo</a></p>
+      <p><strong>Portfolio site</strong>  this page on GitHub Pages with a custom domain.</p>
+    </section>
+
+    <section class="card">
+      <h2>Education and certs</h2>
+      <p>BS in cyber security  SNHU</p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Omar
+  </footer>
+  <script>document.getElementById("y").textContent=new Date().getFullYear()</script>
+</body>
+</html>
